@@ -8,16 +8,19 @@ client.events = new Discord.Collection();
     require(`./handlers/${handler}`)(client,Discord)
 })
 
-mongoose
-    .connect(process.env.MONGODB_URI ,{
+const db = process.env.MONGODB_URL;
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(db, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false,
-    })
-    .then(() => {
-        console.log("connected to the databese");
-    })
-    .catch((err) =>{
-        console.log(err);
     });
+    console.log("MongoDB is Connected...");
+  } catch (err) {
+    console.error(err.message);
+    process.exit(1);
+  }
+};
 client.login(process.env.TOKEN);
