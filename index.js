@@ -9,7 +9,7 @@ client.events = new Discord.Collection();
 })
 
 mongoose
-    .connect(process.env.MB ,{
+    .connect(process.env.MONGODB_URI ,{
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false,
