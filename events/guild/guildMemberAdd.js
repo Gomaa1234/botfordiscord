@@ -5,6 +5,9 @@ module.exports = async(client, discord, member)=>{
         serverID: member.guild.id,
         coins: 1000,
         bank: 0,
+        level: 1,
+        xp: 0,
+        maxxp: 10,
     });
     profile.save();
 };

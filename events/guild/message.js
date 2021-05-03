@@ -10,12 +10,30 @@ module.exports= async (Discord, client,message)=>{
         profileData = await profileModel.findOne({userID: message.author.id});
         if(!profileData){
             let profile = await profileModel.create({
-                userID: message.author.id,
-                serverID: message.guild.id,
+                userID: member.id,
+                serverID: member.guild.id,
                 coins: 1000,
                 bank: 0,
+                level: 1,
+                xp: 0,
+                maxxp: 10,
             });
             profile.save();
+        }
+        else{
+            await profileModel.findOneAndUpdate(
+              {
+                userID: message.author.id,
+              },
+              {
+                $inc: {
+                  xp: 5,
+                },
+                if(xp = maxxp){
+                  xp: 5;
+                }
+              },
+            );
         }
     }catch(err){
         console.log(err);
