@@ -6,7 +6,6 @@ const profileschema = new mongoose.Schema({
     bank: {type: Number},
     level: {type: Number},
     xp: {type: Number},
-    maxxp: {type: Number}
 });
 const model = mongoose.model("ProfileModels", profileschema);
 module.exports= model;

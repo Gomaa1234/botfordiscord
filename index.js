@@ -8,9 +8,8 @@ client.events = new Discord.Collection();
     require(`./handlers/${handler}`)(client,Discord)
 })
 
-
 mongoose
-    .connect(process.env.MONGODB_URL ,{
+    .connect(process.env.MONGODB_URI ,{
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false,

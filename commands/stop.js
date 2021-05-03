@@ -7,7 +7,9 @@ module.exports={
     execute(message,args,servers,client,playing, profileData, Discord){
         var server = servers[message.guild.id];
         if(message.member.voice.channel){
-            server.queue.splice(0, server.queue.length)
+            for(var i = server.queue.length-1; i >= 0; i--){
+                server.queue.split(i,1)
+            }
             server.dispatcher.end();
             msg.execute(message,"Ending the queue leaving the voice channel");
             console.log('stopped the queue')

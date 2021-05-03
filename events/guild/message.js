@@ -2,7 +2,8 @@
     var playing = false;
     const prefix = '$';
     const profileModel = require('../../Models/profileSchema');
-module.exports= async (Discord, client,message)=>{
+    const level = require('../../level/level');
+module.exports = async (Discord, client,message)=>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).split(/ +/);
     let profileData;
@@ -10,30 +11,15 @@ module.exports= async (Discord, client,message)=>{
         profileData = await profileModel.findOne({userID: message.author.id});
         if(!profileData){
             let profile = await profileModel.create({
-                userID: member.id,
-                serverID: member.guild.id,
-                coins: 1000,
-                bank: 0,
-                level: 1,
-                xp: 0,
-                maxxp: 10,
-            });
-            profile.save();
-        }
-        else{
-            await profileModel.findOneAndUpdate(
-              {
-                userID: message.author.id,
-              },
-              {
-                $inc: {
-                  xp: 5,
-                },
-                if(xp = maxxp){
-                  xp: 5;
-                }
-              },
-            );
+              userID: message.author.id,
+              serverID: message.guild.id,
+              coins: 1000,
+              bank: 0,
+              level: 1,
+              xp: 0,
+              maxxp: 10,
+          });
+          profile.save();
         }
     }catch(err){
         console.log(err);
@@ -87,4 +73,5 @@ module.exports= async (Discord, client,message)=>{
         }
       }
     if(command) playing = command.execute(message,args,servers,client,playing, profileData, Discord)
+    level.execute(message,client,Discord);
 }
