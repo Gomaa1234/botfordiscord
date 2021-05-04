@@ -18,6 +18,7 @@ module.exports={
             await profileModel.findOneAndUpdate(
                 {
                     userID: target.id,
+                    serverID: target.guild.id,
                 },
                 {
                     $inc: {

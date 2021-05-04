@@ -8,7 +8,12 @@ module.exports = async (Discord, client,message)=>{
     const args = message.content.slice(prefix.length).split(/ +/);
     let profileData;
     try{
-        profileData = await profileModel.findOne({userID: message.author.id});
+        profileData = await profileModel.findOne(
+          {
+            userID: message.author.id,
+            serverID: message.guild.id,
+          }
+        );
         if(!profileData){
             let profile = await profileModel.create({
               userID: message.author.id,

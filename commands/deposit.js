@@ -9,10 +9,11 @@ module.exports={
         const amount = args[1];
         if(amount % 1 != 0 || amount <= 0) return erro.execute(message, 'Deposit amount most be a whole number');
         try{
-            if(amount > profileData.coins) return erro.execute(message, "You don´t have that amount of coins to deposit");
+            if(amount > profileData.coins) return erro.execute(message, "You don´t have that amount of coins in wallet to deposit");
             await profileModel.findOneAndUpdate(
                 {
                     userID: message.author.id,
+                    serverID: message.guild.id,
                 },
                 {
                     $inc: {

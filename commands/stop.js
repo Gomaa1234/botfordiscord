@@ -1,4 +1,4 @@
-//const ytdl = require('ytdl-core');
+
 const msg = require('../message/message');
 module.exports={
     name: 'stop',

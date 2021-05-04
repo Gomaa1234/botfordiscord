@@ -8,6 +8,7 @@ module.exports={
         const response = await profileModel.findOneAndUpdate(
             {
                 userID: message.author.id,
+                serverID: message.guild.id,
             },
             {
                 $inc: {

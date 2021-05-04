@@ -6,9 +6,9 @@ module.exports = {
     const result = await profileModel.findOneAndUpdate(
       {
         userID: message.author.id,
+        serverID: message.guild.id,
       },
       {
-        
         $inc: {
           xp: 5,
         },
@@ -20,10 +20,11 @@ module.exports = {
     if(xp >= needed){
       level++;
       xp -= needed
-      msg.execute(message,`${message.author} you are now level ${level} with ${xp} experience!`)
+      msg.execute(message,`${message.author.username} you are now level ${level} with ${xp} experience!`)
       await profileModel.findOneAndUpdate(
         {
           userID: message.author.id,
+          serverID: message.guild.id,
         },
         {
           level,
