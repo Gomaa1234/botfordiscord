@@ -8,6 +8,6 @@ module.exports={
         if(!message.member.voice.channel) return erro.execute(message,"You need to be in a voice channel to stop the music");
         message.member.voice.channel.leave();
         playing = false
-         msg.execute(message,'Leaving channel :smiling_face_with_tear:');
+        msg.execute(message,'Leaving channel :smiling_face_with_tear:');
     }
 }

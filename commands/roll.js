@@ -9,7 +9,7 @@ module.exports={
         if(!args[1]) return erro.execute(message,"you need to porvide a value")
         try{
             let myNumber = Number(args[1]);
-            msg.execute(message, random.int(0, myNumber));
+            msg.execute(message, random.int(1, myNumber));
         }catch{
             return erro.execute(message,"you need to porvide a number")
         }

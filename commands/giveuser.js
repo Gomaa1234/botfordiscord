@@ -1,11 +1,15 @@
-const profileModel = require('../Models/profileSchema');
+const idproflilemodel = require('../Models/guildprofileserver');
 const erro = require('../message/errors');
 const msg = require('../message/message');
+var profilemodel = null;
 module.exports={
     name: 'giveuser',
     aliases: ["gi","gu"],
     permissions: [],
     async execute(message,args,servers,client,playing, profileData, Discord){
+        if(profilemodel == null){
+            profilemodel = idproflilemodel(message.guild.id);
+        }
         if(!args.length) return erro.execute(message, "You need to mention a player to give them coins");
         const amount = args[2];
         const target = message.mentions.users.first();
@@ -13,9 +17,9 @@ module.exports={
         if(target.id == message.author.id) return erro.execute(message,"You can't give coins for yourself")
         if(amount % 1 != 0 || amount <= 0) return erro.execute(message, 'Deposit amount most be a whole number');
         try{
-            const targetData = await profileModel.findOne({userID: target.id});
+            const targetData = await profilemodel.findOne({userID: target.id});
             if(!targetData) return erro.execute(message, "This user doens't exisr in the db");
-            await profileModel.findOneAndUpdate(
+            await profilemodel.findOneAndUpdate(
                 {
                     userID: target.id,
                 },
@@ -25,7 +29,7 @@ module.exports={
                     }
                 }
             );
-            await profileModel.findOneAndUpdate(
+            await profilemodel.findOneAndUpdate(
                 {
                     userID: message.author.id,
                 },

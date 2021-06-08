@@ -1,12 +1,15 @@
-const profileModel = require('../Models/profileSchema');
+const idproflilemodel = require('../Models/guildprofileserver');
 const erro = require('../message/errors');
 const msg = require('../message/message');
+var profilemodel = null;
 module.exports = {
   async execute(message,client, discord){
-    const result = await profileModel.findOneAndUpdate(
+    if(profilemodel == null){
+      profilemodel = idproflilemodel(message.guild.id);
+    }
+    const result = await profilemodel.findOneAndUpdate(
       {
         userID: message.author.id,
-        serverID: message.guild.id,
       },
       {
         $inc: {
@@ -21,10 +24,9 @@ module.exports = {
       level++;
       xp -= needed
       msg.execute(message,`${message.author.username} you are now level ${level} with ${xp} experience!`)
-      await profileModel.findOneAndUpdate(
+      await profilemodel.findOneAndUpdate(
         {
           userID: message.author.id,
-          serverID: message.guild.id,
         },
         {
           level,

@@ -1,9 +1,12 @@
-const profileModel = require('../../Models/profileSchema');
+const idproflilemodel = require('../../Models/guildprofileserver');
+var profilemodel = null;
 module.exports = async(client, discord, member)=>{
-    let profile = await profileModel.create({
+    if(profilemodel == null){
+        profilemodel = idproflilemodel(message.guild.id);
+    }
+    let profile = await profilemodel.create({
         userID: member.id,
-        serverID: member.guild.id,
-        coins: 1000,
+        coins: 100,
         bank: 0,
         level: 1,
         xp: 0,

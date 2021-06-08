@@ -3,6 +3,7 @@ module.exports={
     aliases: ['h'],
     permissions: [],
     async execute(message,args,servers,client,playing, profileData, Discord){
+        message.channel.send("I will send all comands in your DMs")
         message.author.send({embed: {
             color: 3447003,
             author: {
@@ -53,6 +54,10 @@ module.exports={
               {
                 name: "$leave",
                 value: "bot will leave voice chat"
+              },
+              {
+                name: "$profile",
+                value: "bot will show the level and the xp you have."
               },
             ],
             footer: {

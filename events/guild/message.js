@@ -1,28 +1,29 @@
-    var servers = {};
-    var playing = false;
-    const prefix = '$';
-    const profileModel = require('../../Models/profileSchema');
-    const level = require('../../level/level');
+var servers = {};
+var playing = false;
+const prefix = '$';
+const idproflilemodel = require('../../Models/guildprofileserver');
+const level = require('../../level/level');
+var profilemodel = null;
 module.exports = async (Discord, client,message)=>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).split(/ +/);
     let profileData;
+    if(profilemodel == null){
+      profilemodel = idproflilemodel(message.guild.id);
+    }  
     try{
-        profileData = await profileModel.findOne(
+        profileData = await profilemodel.findOne(
           {
             userID: message.author.id,
-            serverID: message.guild.id,
           }
         );
         if(!profileData){
-            let profile = await profileModel.create({
+            let profile = await profilemodel.create({
               userID: message.author.id,
-              serverID: message.guild.id,
-              coins: 1000,
+              coins: 100,
               bank: 0,
               level: 1,
               xp: 0,
-              maxxp: 10,
           });
           profile.save();
         }
