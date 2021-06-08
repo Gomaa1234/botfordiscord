@@ -1,5 +1,5 @@
 const random = require('random');
-const idmodel = require('../Models/Guilditemserver');
+const idmodel = require('../Models/guilditemserver');
 const profileModel = require('../Models/profileSchema');
 const erro = require('../message/errors');
 const msg = require('../message/message');
