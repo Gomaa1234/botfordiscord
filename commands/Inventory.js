@@ -20,7 +20,7 @@ module.exports = {
                 .setDescription("Inventory");
                 result.forEach(element => {
                     var {name, value} = element;
-                    Embed.addField(name, value);
+                    Embed.addField(name, value, inline=true);
                 });
                 message.channel.send(Embed);
             });
@@ -33,7 +33,7 @@ module.exports = {
                 .setDescription("Inventory");
                 result.forEach(element => {
                     var {name, value} = element;
-                    Embed.addField(name, value);
+                    Embed.addField(name, value, inline=true);
                 });
                 message.channel.send(Embed);
             });
