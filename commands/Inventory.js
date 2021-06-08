@@ -1,4 +1,4 @@
-const idmodel = require('../Models/Guilditemserver');
+const idmodel = require('../Models/guilditemserver');
 const erro = require('../message/errors');
 var model = null;
 module.exports = {
