@@ -81,7 +81,7 @@ module.exports = async (Discord, client,message)=>{
         }
       }
     }catch(err){
-      err0.execute(message,`Wrong command, íf you need help write $help`)
+      erro.execute(message,`Wrong command, íf you need help write $help`)
     }
     if(command) playing = command.execute(message,args,servers,client,playing, profileData, Discord)
     level.execute(message,client,Discord);
