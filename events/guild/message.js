@@ -3,6 +3,7 @@ var playing = false;
 const prefix = '$';
 const idproflilemodel = require('../../Models/guildprofileserver');
 const level = require('../../level/level');
+const erro = require('../message/errors');
 var profilemodel = null;
 module.exports = async (Discord, client,message)=>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
@@ -80,7 +81,7 @@ module.exports = async (Discord, client,message)=>{
         }
       }
     }catch(err){
-      err.execute(message,`Wrong command, íf you need help write $help`)
+      err0.execute(message,`Wrong command, íf you need help write $help`)
     }
     if(command) playing = command.execute(message,args,servers,client,playing, profileData, Discord)
     level.execute(message,client,Discord);
