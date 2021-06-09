@@ -22,7 +22,6 @@ module.exports={
             await profilemodel.findOneAndUpdate(
                 {
                     userID: target.id,
-                    serverID: message.guild.id,
                 },
                 {
                     $inc: {
