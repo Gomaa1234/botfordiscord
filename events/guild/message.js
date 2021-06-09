@@ -3,7 +3,7 @@ var playing = false;
 const prefix = '$';
 const idproflilemodel = require('../../Models/guildprofileserver');
 const level = require('../../level/level');
-const erro = require('../message/errors');
+const erro = require('../../message/errors');
 var profilemodel = null;
 module.exports = async (Discord, client,message)=>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
