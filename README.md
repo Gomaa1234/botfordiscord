@@ -5,46 +5,46 @@ This bot is a music bot and economy bot and level bot
 
 Commands:
 
--additem.js
+-additem.js                                                                                                                                                                                                               
 
--balance.js
+-balance.js                                                                                                                                                                                                              
 
--beg.js
+-beg.js                                                                                                                                                                                                              
 
--deposit.js
+-deposit.js                                                                                                                                                                                                              
 
--give.js
+-give.js                                                                                                                                                                                                              
 
--giveuser.js
+-giveuser.js                                                                                                                                                                                                              
 
--help.js
+-help.js                                                                                                                                                                                                              
 
--inventory.js
+-inventory.js                                                                                                                                                                                                              
 
--join.js
+-join.js                                                                                                                                                                                                              
 
--leave.js
+-leave.js                                                                                                                                                                                                              
 
--open.js
+-open.js                                                                                                                                                                                                              
 
--pause.js
+-pause.js                                                                                                                                                                                                              
 
--play.js
+-play.js                                                                                                                                                                                                              
 
--queue.js
+-queue.js                                                                                                                                                                                                              
 
--removeitem.js
+-removeitem.js                                                                                                                                                                                                              
 
--resume.js
+-resume.js                                                                                                                                                                                                              
 
--roll.js
+-roll.js                                                                                                                                                                                                              
 
--sell.js
+-sell.js                                                                                                                                                                                                              
 
--skip.js
+-skip.js                                                                                                                                                                                                              
 
--stop.js
+-stop.js                                                                                                                                                                                                              
 
--ticket.js
+-ticket.js                                                                                                                                                                                                              
 
--withdraw.js
+-withdraw.js                                                                                                                                                                                                              
